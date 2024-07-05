@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Webhook</title>
+</head>
+<body>
+    <button onclick="sendWebhook()">Ban User</button>
+
+    <script>
+        function sendWebhook() {
+            const webhookURL = 'https://discord.com/api/webhooks/1258585693148545085/yLGfTcJNHMYls2arzW_YJYC0OiHPRODYNWa-UdD9qRc0LoG4f54_cguJ_kWap_aP_odZ';
+            const data = {
+                content: 'Ban user with ID 111865544859007405'
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch((error) => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
